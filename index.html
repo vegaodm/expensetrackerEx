@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Expense Tracker</title>
+    <title data-i18n="title">Privacy Policy - Expense Tracker</title>
     <style>
         :root {
             --accent: #007AFF;
@@ -21,8 +21,40 @@
         header {
             background: var(--accent);
             color: #fff;
-            padding: 48px 24px;
+            padding: 40px 24px 32px;
             text-align: center;
+            position: relative;
+        }
+        .lang-select {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            padding: 4px;
+        }
+        .lang-select select {
+            font-size: 0.85rem;
+            font-family: inherit;
+            border: none;
+            background: transparent;
+            color: #fff;
+            padding: 4px 26px 4px 8px;
+            border-radius: 8px;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+        }
+        .lang-select select option { color: var(--text); }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
         }
         header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
         header p { opacity: 0.9; font-size: 0.95rem; }
@@ -52,18 +84,35 @@
             color: var(--muted);
         }
         footer a { color: var(--accent); }
+        @media (max-width: 480px) {
+            .lang-select select { max-width: 110px; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Expense Tracker</h1>
-        <p>Privacy Policy</p>
+        <div class="lang-select">
+            <label for="langSelect" class="visually-hidden" data-i18n="language">Language</label>
+            <select id="langSelect" aria-label="Language">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="ko">한국어</option>
+                <option value="pl">Polski</option>
+                <option value="pt">Português</option>
+                <option value="nl">Nederlands</option>
+            </select>
+        </div>
+        <h1 data-i18n="appName">Expense Tracker</h1>
+        <p data-i18n="tagline">Privacy Policy</p>
     </header>
 
     <main>
         <section>
-            <h2>Overview</h2>
-            <p>
+            <h2 data-i18n="sec1h2">Overview</h2>
+            <p data-i18n="sec1p">
                 Expense Tracker is a personal expense recording app. We believe your data belongs to you,
                 and we are committed to keeping it private. This policy explains what information the app
                 collects and how it is handled.
@@ -71,37 +120,37 @@
         </section>
 
         <section>
-            <h2>Data We Collect</h2>
-            <p>Expense Tracker does not collect any personal information, and it does not use analytics or advertising services.</p>
+            <h2 data-i18n="sec2h2">Data We Collect</h2>
+            <p data-i18n="sec2p">Expense Tracker does not collect any personal information, and it does not use analytics or advertising services.</p>
             <ul>
-                <li>No account is required to use the app.</li>
-                <li>No email address, name, or contact information is requested.</li>
-                <li>The app does not track your location and does not access your contacts, photos, or calendar.</li>
-                <li>All expense data is stored directly on your device.</li>
+                <li data-i18n="sec2li1">No account is required to use the app.</li>
+                <li data-i18n="sec2li2">No email address, name, or contact information is requested.</li>
+                <li data-i18n="sec2li3">The app does not track your location and does not access your contacts, photos, or calendar.</li>
+                <li data-i18n="sec2li4">All expense data is stored directly on your device.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Where Your Data Is Stored</h2>
-            <p>
+            <h2 data-i18n="sec3h2">Where Your Data Is Stored</h2>
+            <p data-i18n="sec3p">
                 All of your expense records, settings, and categories are stored in a local SQLite database
                 on your device. They are never uploaded to any server and are not shared with any third party.
             </p>
         </section>
 
         <section>
-            <h2>Backup and Restore</h2>
-            <p>
+            <h2 data-i18n="sec4h2">Backup and Restore</h2>
+            <p data-i18n="sec4p">
                 You can export a backup file of your local database and import one to restore your data.
                 These files are created on your device and reside only where you choose to save them.
-                Removing an imported category that is not recognized causes the affected records to be
-                moved under the "Other" category, always keeping your data intact.
+                If an imported backup contains a category that the app does not recognize, the affected
+                records are moved under the “Other” category, so your data always stays intact.
             </p>
         </section>
 
         <section>
-            <h2>Data Deletion</h2>
-            <p>
+            <h2 data-i18n="sec5h2">Data Deletion</h2>
+            <p data-i18n="sec5p">
                 You can delete any expense or category at any time within the app. Deleting the app from
                 your device removes all locally stored data. If you have exported a backup file, you can
                 delete it from your device and iCloud to permanently remove that copy.
@@ -109,33 +158,369 @@
         </section>
 
         <section>
-            <h2>Children's Privacy</h2>
-            <p>
+            <h2 data-i18n="sec6h2">Children's Privacy</h2>
+            <p data-i18n="sec6p">
                 The app does not collect personal information from anyone, including children under the age of 13.
             </p>
         </section>
 
         <section>
-            <h2>Changes to This Policy</h2>
-            <p>
+            <h2 data-i18n="sec7h2">Changes to This Policy</h2>
+            <p data-i18n="sec7p">
                 We may update this privacy policy from time to time. Any changes will be reflected on this
                 page, and the effective date below will be updated accordingly.
             </p>
         </section>
 
         <section>
-            <h2>Contact Us</h2>
-            <p>
+            <h2 data-i18n="sec8h2">Contact Us</h2>
+            <p data-i18n-html="sec8p">
                 If you have any questions about this privacy policy, please contact us at
                 <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a>.
             </p>
         </section>
 
-        <p class="updated">Last updated: September 18, 2026</p>
+        <p class="updated" data-i18n="updated">Last updated: October 6, 2026</p>
     </main>
 
-    <footer>
+    <footer data-i18n-html="footer">
         <a href="index.html">Privacy Policy</a> &middot; <a href="support.html">Support</a>
     </footer>
+
+    <script>
+        const I18N = {
+            "title": {
+                "en": "Privacy Policy - Expense Tracker",
+                "ja": "プライバシーポリシー - 支出トラッカー",
+                "fr": "Politique de confidentialité - Suivi des dépenses",
+                "de": "Datenschutzerklärung - Ausgaben-Tracker",
+                "it": "Informativa sulla privacy - Tracker delle spese",
+                "ko": "개인정보 처리방침 - 지출 트래커",
+                "pl": "Polityka prywatności - Śledzenie wydatków",
+                "pt": "Política de Privacidade - Rastreador de Despesas",
+                "nl": "Privacybeleid - Uitgaven Tracker"
+            },
+            "appName": {
+                "en": "Expense Tracker",
+                "ja": "支出トラッカー",
+                "fr": "Suivi des dépenses",
+                "de": "Ausgaben-Tracker",
+                "it": "Tracker delle spese",
+                "ko": "지출 트래커",
+                "pl": "Śledzenie wydatków",
+                "pt": "Rastreador de Despesas",
+                "nl": "Uitgaven Tracker"
+            },
+            "tagline": {
+                "en": "Privacy Policy",
+                "ja": "プライバシーポリシー",
+                "fr": "Politique de confidentialité",
+                "de": "Datenschutzerklärung",
+                "it": "Informativa sulla privacy",
+                "ko": "개인정보 처리방침",
+                "pl": "Polityka prywatności",
+                "pt": "Política de Privacidade",
+                "nl": "Privacybeleid"
+            },
+            "language": {
+                "en": "Language",
+                "ja": "言語",
+                "fr": "Langue",
+                "de": "Sprache",
+                "it": "Lingua",
+                "ko": "언어",
+                "pl": "Język",
+                "pt": "Idioma",
+                "nl": "Taal"
+            },
+            "sec1h2": {
+                "en": "Overview",
+                "ja": "概要",
+                "fr": "Aperçu",
+                "de": "Überblick",
+                "it": "Panoramica",
+                "ko": "개요",
+                "pl": "Przegląd",
+                "pt": "Visão geral",
+                "nl": "Overzicht"
+            },
+            "sec1p": {
+                "en": "Expense Tracker is a personal expense recording app. We believe your data belongs to you, and we are committed to keeping it private. This policy explains what information the app collects and how it is handled.",
+                "ja": "支出トラッカーは個人の支出を記録するアプリです。私たちはあなたのデータはあなた自身のものであると考え、そのプライバシー保護に努めています。本ポリシーでは、アプリが収集する情報とその取り扱いについて説明します。",
+                "fr": "Suivi des dépenses est une application personnelle de suivi de dépenses. Nous pensons que vos données vous appartiennent et nous nous engageons à les protéger. Cette politique explique quelles informations l'application collecte et comment elles sont traitées.",
+                "de": "Ausgaben-Tracker ist eine App zur persönlichen Ausgabenerfassung. Wir sind überzeugt, dass Ihre Daten Ihnen gehören, und setzen uns für den Schutz Ihrer Privatsphäre ein. Diese Erklärung erläutert, welche Informationen die App erfasst und wie sie verarbeitet werden.",
+                "it": "Tracker delle spese è un'app per la registrazione personale delle spese. Crediamo che i tuoi dati ti appartengano e ci impegniamo a proteggerli. Questa informativa spiega quali informazioni l'app raccoglie e come vengono gestite.",
+                "ko": "지출 트래커는 개인 지출을 기록하는 앱입니다. 우리는 사용자의 데이터가 사용자 본인의 것이라고 믿으며, 이를 보호하기 위해 최선을 다합니다. 본 정책은 앱이 수집하는 정보와 처리 방식을 설명합니다.",
+                "pl": "Śledzenie wydatków to aplikacja do rejestrowania osobistych wydatków. Wierzymy, że Twoje dane należą do Ciebie, i dbamy o ich prywatność. Niniejsza polityka wyjaśnia, jakie informacje zbiera aplikacja i jak są one przetwarzane.",
+                "pt": "O Rastreador de Despesas é um aplicativo de registro pessoal de despesas. Acreditamos que seus dados pertencem a você e nos comprometemos a mantê-los privados. Esta política explica quais informações o aplicativo coleta e como elas são tratadas.",
+                "nl": "Uitgaven Tracker is een app voor het bijhouden van persoonlijke uitgaven. Wij geloven dat uw gegevens van u zijn en zetten ons in om ze privé te houden. Dit beleid legt uit welke informatie de app verzamelt en hoe die wordt verwerkt."
+            },
+            "sec2h2": {
+                "en": "Data We Collect",
+                "ja": "収集するデータ",
+                "fr": "Données collectées",
+                "de": "Erfasste Daten",
+                "it": "Dati raccolti",
+                "ko": "수집하는 데이터",
+                "pl": "Zbierane dane",
+                "pt": "Dados coletados",
+                "nl": "Gegevens die we verzamelen"
+            },
+            "sec2p": {
+                "en": "Expense Tracker does not collect any personal information, and it does not use analytics or advertising services.",
+                "ja": "支出トラッカーはいかなる個人情報も収集せず、分析や広告サービスも使用していません。",
+                "fr": "Suivi des dépenses ne collecte aucune information personnelle et n'utilise ni services d'analyse ni publicité.",
+                "de": "Die Ausgaben-Tracker-App erfasst keine persönlichen Daten und nutzt weder Analyse- noch Werbedienste.",
+                "it": "Tracker delle spese non raccoglie alcuna informazione personale e non utilizza servizi di analisi o pubblicità.",
+                "ko": "지출 트래커는 개인정보를 수집하지 않으며, 분석이나 광고 서비스도 사용하지 않습니다.",
+                "pl": "Aplikacja Śledzenie wydatków nie zbiera żadnych danych osobowych i nie korzysta z analityki ani usług reklamowych.",
+                "pt": "O Rastreador de Despesas não coleta nenhuma informação pessoal e não usa serviços de análise ou publicidade.",
+                "nl": "Uitgaven Tracker verzamelt geen persoonlijke gegevens en gebruikt geen analyse- of advertentiediensten."
+            },
+            "sec2li1": {
+                "en": "No account is required to use the app.",
+                "ja": "アプリの利用にアカウントは不要です。",
+                "fr": "Aucun compte n'est requis pour utiliser l'application.",
+                "de": "Für die Nutzung der App ist kein Konto erforderlich.",
+                "it": "Non è richiesto alcun account per usare l'app.",
+                "ko": "앱을 사용하기 위해 계정이 필요하지 않습니다.",
+                "pl": "Do korzystania z aplikacji nie jest wymagane konto.",
+                "pt": "Não é necessária uma conta para usar o aplicativo.",
+                "nl": "Er is geen account nodig om de app te gebruiken."
+            },
+            "sec2li2": {
+                "en": "No email address, name, or contact information is requested.",
+                "ja": "メールアドレス、氏名、連絡先などの情報は求められません。",
+                "fr": "Aucune adresse e-mail, nom ou coordonnées n'est demandé.",
+                "de": "Es werden weder E-Mail-Adresse noch Name oder Kontaktdaten abgefragt.",
+                "it": "Non vengono richiesti indirizzo e-mail, nome o dati di contatto.",
+                "ko": "이메일 주소, 이름, 연락처 정보를 요구하지 않습니다.",
+                "pl": "Nie są wymagane adres e-mail, imię ani dane kontaktowe.",
+                "pt": "Nenhum endereço de e-mail, nome ou informações de contato é solicitado.",
+                "nl": "Er wordt geen e-mailadres, naam of contactgegevens gevraagd."
+            },
+            "sec2li3": {
+                "en": "The app does not track your location and does not access your contacts, photos, or calendar.",
+                "ja": "位置情報の追跡は行わず、連絡先・写真・カレンダーにもアクセスしません。",
+                "fr": "L'application ne suit pas votre position et n'accède pas à vos contacts, photos ou calendrier.",
+                "de": "Die App verfolgt weder Ihren Standort noch greift sie auf Kontakte, Fotos oder Kalender zu.",
+                "it": "L'app non traccia la tua posizione e non accede a contatti, foto o calendario.",
+                "ko": "앱은 위치를 추적하지 않으며 연락처, 사진, 캘린더에 접근하지 않습니다.",
+                "pl": "Aplikacja nie śledzi Twojej lokalizacji i nie uzyskuje dostępu do kontaktów, zdjęć ani kalendarza.",
+                "pt": "O aplicativo não rastreia sua localização e não acessa seus contatos, fotos ou calendário.",
+                "nl": "De app volgt uw locatie niet en heeft geen toegang tot uw contacten, foto's of agenda."
+            },
+            "sec2li4": {
+                "en": "All expense data is stored directly on your device.",
+                "ja": "すべての支出データはデバイス上に直接保存されます。",
+                "fr": "Toutes les données de dépenses sont stockées directement sur votre appareil.",
+                "de": "Alle Ausgabendaten werden direkt auf Ihrem Gerät gespeichert.",
+                "it": "Tutti i dati delle spese sono memorizzati direttamente sul tuo dispositivo.",
+                "ko": "모든 지출 데이터는 기기에 직접 저장됩니다.",
+                "pl": "Wszystkie dane wydatków są przechowywane bezpośrednio na Twoim urządzeniu.",
+                "pt": "Todos os dados de despesas são armazenados diretamente no seu dispositivo.",
+                "nl": "Alle uitgavengegevens worden rechtstreeks op uw apparaat opgeslagen."
+            },
+            "sec3h2": {
+                "en": "Where Your Data Is Stored",
+                "ja": "データの保存場所",
+                "fr": "Où vos données sont stockées",
+                "de": "Speicherort Ihrer Daten",
+                "it": "Dove vengono archiviati i dati",
+                "ko": "데이터 저장 위치",
+                "pl": "Gdzie przechowywane są Twoje dane",
+                "pt": "Onde seus dados são armazenados",
+                "nl": "Waar uw gegevens worden opgeslagen"
+            },
+            "sec3p": {
+                "en": "All of your expense records, settings, and categories are stored in a local SQLite database on your device. They are never uploaded to any server and are not shared with any third party.",
+                "ja": "すべての支出記録・設定・カテゴリは、デバイス上のローカルSQLiteデータベースに保存されます。サーバーにアップロードされることはなく、第三者と共有されることもありません。",
+                "fr": "Tous vos enregistrements de dépenses, vos réglages et vos catégories sont stockés dans une base de données SQLite locale sur votre appareil. Ils ne sont jamais téléversés sur un serveur ni partagés avec un tiers.",
+                "de": "Alle Ihre Ausgaben, Einstellungen und Kategorien werden in einer lokalen SQLite-Datenbank auf Ihrem Gerät gespeichert. Sie werden nie auf einen Server hochgeladen oder an Dritte weitergegeben.",
+                "it": "Tutti i tuoi movimenti, le impostazioni e le categorie sono archiviati in un database SQLite locale sul tuo dispositivo. Non vengono mai caricati su server né condivisi con terze parti.",
+                "ko": "모든 지출 기록, 설정, 카테고리는 기기의 로컬 SQLite 데이터베이스에 저장됩니다. 어떤 서버에도 업로드되지 않으며 제3자와 공유되지 않습니다.",
+                "pl": "Wszystkie Twoje rekordy wydatków, ustawienia i kategorie są przechowywane w lokalnej bazie danych SQLite na Twoim urządzeniu. Nigdy nie są przesyłane na żaden serwer ani udostępniane osobom trzecim.",
+                "pt": "Todos os seus registros de despesas, configurações e categorias são armazenados em um banco de dados SQLite local no seu dispositivo. Eles nunca são enviados para qualquer servidor nem compartilhados com terceiros.",
+                "nl": "Al uw uitgaven, instellingen en categorieën worden opgeslagen in een lokale SQLite-database op uw apparaat. Ze worden nooit naar een server geüpload of met derden gedeeld."
+            },
+            "sec4h2": {
+                "en": "Backup and Restore",
+                "ja": "バックアップと復元",
+                "fr": "Sauvegarde et restauration",
+                "de": "Sicherung und Wiederherstellung",
+                "it": "Backup e ripristino",
+                "ko": "백업 및 복원",
+                "pl": "Kopia zapasowa i przywracanie",
+                "pt": "Backup e restauração",
+                "nl": "Back-up en herstel"
+            },
+            "sec4p": {
+                "en": "You can export a backup file of your local database and import one to restore your data. These files are created on your device and reside only where you choose to save them. If an imported backup contains a category that the app does not recognize, the affected records are moved under the “Other” category, so your data always stays intact.",
+                "ja": "ローカルデータベースのバックアップファイルを書き出したり、読み込んでデータを復元したりできます。これらのファイルはデバイス上で作成され、あなたが保存した場所にのみ置かれます。読み込んだバックアップにアプリが認識できないカテゴリが含まれている場合、該当する記録は「その他」カテゴリに移動され、データは常に保持されます。",
+                "fr": "Vous pouvez exporter un fichier de sauvegarde de votre base de données locale et en importer un pour restaurer vos données. Ces fichiers sont créés sur votre appareil et ne sont stockés qu'à l'endroit que vous choisissez. Si une sauvegarde importée contient une catégorie que l'application ne reconnaît pas, les enregistrements concernés sont déplacés dans la catégorie « Autre », de sorte que vos données restent toujours intactes.",
+                "de": "Sie können eine Sicherungsdatei Ihrer lokalen Datenbank exportieren und eine solche importieren, um Ihre Daten wiederherzustellen. Diese Dateien werden auf Ihrem Gerät erstellt und befinden sich nur an dem Ort, an dem Sie sie speichern. Enthält eine importierte Sicherung eine Kategorie, die die App nicht kennt, werden die betroffenen Datensätze in die Kategorie „Sonstiges“ verschoben – Ihre Daten bleiben dabei stets erhalten.",
+                "it": "Puoi esportare un file di backup del tuo database locale e importarne uno per ripristinare i dati. Questi file vengono creati sul tuo dispositivo e restano solo dove decidi di salvarli. Se un backup importato contiene una categoria che l'app non riconosce, i record interessati vengono spostati nella categoria «Altro», così i tuoi dati restano sempre intatti.",
+                "ko": "로컬 데이터베이스의 백업 파일을 내보내고, 가져와서 데이터를 복원할 수 있습니다. 이 파일은 기기에서 생성되며, 직접 저장한 위치에만 보관됩니다. 가져온 백업에 앱이 인식하지 못하는 카테고리가 있으면 해당 기록은 '기타' 카테고리로 이동되며, 데이터는 항상 안전하게 유지됩니다.",
+                "pl": "Możesz wyeksportować plik kopii zapasowej lokalnej bazy danych i zaimportować go, aby przywrócić dane. Pliki te są tworzone na Twoim urządzeniu i znajdują się tylko tam, gdzie je zapiszesz. Jeśli zaimportowana kopia zawiera kategorię nierozpoznaną przez aplikację, powiązane rekordy są przenoszone do kategorii „Inne”, dzięki czemu dane pozostają zawsze nienaruszone.",
+                "pt": "Você pode exportar um arquivo de backup do seu banco de dados local e importar um para restaurar seus dados. Esses arquivos são criados no seu dispositivo e permanecem apenas onde você escolher salvá-los. Se um backup importado contiver uma categoria que o aplicativo não reconhece, os registros afetados são movidos para a categoria “Outros”, de modo que seus dados permaneçam sempre intactos.",
+                "nl": "U kunt een back-upbestand van uw lokale database exporteren en een bestand importeren om uw gegevens te herstellen. Deze bestanden worden op uw apparaat gemaakt en staan alleen op de plek waar u ze opslaat. Als een geïmporteerde back-up een categorie bevat die de app niet herkent, worden de betreffende records verplaatst naar de categorie “Overig”, zodat uw gegevens altijd intact blijven.",
+            },
+            "sec5h2": {
+                "en": "Data Deletion",
+                "ja": "データの削除",
+                "fr": "Suppression des données",
+                "de": "Datenlöschung",
+                "it": "Eliminazione dei dati",
+                "ko": "데이터 삭제",
+                "pl": "Usuwanie danych",
+                "pt": "Exclusão de dados",
+                "nl": "Verwijderen van gegevens"
+            },
+            "sec5p": {
+                "en": "You can delete any expense or category at any time within the app. Deleting the app from your device removes all locally stored data. If you have exported a backup file, you can delete it from your device and iCloud to permanently remove that copy.",
+                "ja": "アプリ内でいつでも支出やカテゴリを削除できます。アプリをデバイスから削除すると、端末上に保存されたすべてのデータが削除されます。バックアップファイルを書き出している場合は、デバイスやiCloudからそのファイルを削除すれば、そのコピーも完全に消去できます。",
+                "fr": "Vous pouvez supprimer une dépense ou une catégorie à tout moment dans l'application. La suppression de l'application de votre appareil supprime toutes les données stockées en local. Si vous avez exporté un fichier de sauvegarde, vous pouvez le supprimer de votre appareil et d'iCloud pour effacer définitivement cette copie.",
+                "de": "Sie können jederzeit innerhalb der App eine Ausgabe oder Kategorie löschen. Das Löschen der App von Ihrem Gerät entfernt alle lokal gespeicherten Daten. Wenn Sie eine Sicherungsdatei exportiert haben, können Sie diese auf Ihrem Gerät und in iCloud löschen, um diese Kopie dauerhaft zu entfernen.",
+                "it": "Puoi eliminare qualsiasi spesa o categoria in qualsiasi momento nell'app. Eliminando l'app dal tuo dispositivo vengono rimossi tutti i dati memorizzati localmente. Se hai esportato un file di backup, puoi eliminarlo dal dispositivo e da iCloud per rimuovere definitivamente quella copia.",
+                "ko": "앱 내에서 언제든지 지출이나 카테고리를 삭제할 수 있습니다. 기기에서 앱을 삭제하면 로컬에 저장된 모든 데이터가 제거됩니다. 백업 파일을 내보낸 경우, 기기와 iCloud에서 삭제하면 해당 사본을 영구적으로 제거할 수 있습니다.",
+                "pl": "Możesz w dowolnym momencie usuwać wydatki i kategorie w aplikacji. Usunięcie aplikacji z urządzenia usuwa wszystkie dane lokalne. Jeśli wyeksportowałeś plik kopii zapasowej, możesz go usunąć z urządzenia i z iCloud, aby trwale usunąć tę kopię.",
+                "pt": "Você pode excluir qualquer despesa ou categoria a qualquer momento dentro do aplicativo. Excluir o aplicativo do seu dispositivo remove todos os dados armazenados localmente. Se você exportou um arquivo de backup, pode excluí-lo do dispositivo e do iCloud para remover permanentemente essa cópia.",
+                "nl": "U kunt op elk moment een uitgave of categorie verwijderen in de app. Het verwijderen van de app van uw apparaat verwijdert alle lokaal opgeslagen gegevens. Hebt u een back-upbestand geëxporteerd, dan kunt u dat bestand van uw apparaat en iCloud verwijderen om die kopie definitief te wissen."
+            },
+            "sec6h2": {
+                "en": "Children's Privacy",
+                "ja": "子どものプライバシー",
+                "fr": "Confidentialité des enfants",
+                "de": "Schutz der Privatsphäre von Kindern",
+                "it": "Privacy dei minori",
+                "ko": "아동의 개인정보",
+                "pl": "Prywatność dzieci",
+                "pt": "Privacidade de crianças",
+                "nl": "Privacy van kinderen"
+            },
+            "sec6p": {
+                "en": "The app does not collect personal information from anyone, including children under the age of 13.",
+                "ja": "本アプリは、13歳未満の子どもを含む誰からも個人情報を収集しません。",
+                "fr": "L'application ne collecte pas d'informations personnelles auprès de qui que ce soit, y compris les enfants de moins de 13 ans.",
+                "de": "Die App erfasst von niemandem personenbezogene Daten, auch nicht von Kindern unter 13 Jahren.",
+                "it": "L'app non raccoglie informazioni personali da nessuno, inclusi i minori di 13 anni.",
+                "ko": "앱은 13세 미만의 아동을 포함해 누구로부터도 개인정보를 수집하지 않습니다.",
+                "pl": "Aplikacja nie zbiera danych osobowych od nikogo, w tym od dzieci poniżej 13. roku życia.",
+                "pt": "O aplicativo não coleta informações pessoais de ninguém, incluindo crianças menores de 13 anos.",
+                "nl": "De app verzamelt van niemand persoonlijke gegevens, ook niet van kinderen jonger dan 13 jaar."
+            },
+            "sec7h2": {
+                "en": "Changes to This Policy",
+                "ja": "本ポリシーの変更",
+                "fr": "Modifications de cette politique",
+                "de": "Änderungen dieser Erklärung",
+                "it": "Modifiche a questa informativa",
+                "ko": "본 정책의 변경",
+                "pl": "Zmiany w polityce",
+                "pt": "Alterações nesta política",
+                "nl": "Wijzigingen in dit beleid"
+            },
+            "sec7p": {
+                "en": "We may update this privacy policy from time to time. Any changes will be reflected on this page, and the effective date below will be updated accordingly.",
+                "ja": "本プライバシーポリシーは随時更新されることがあります。変更はすべてこのページに反映され、下記の有効日もそれに合わせて更新されます。",
+                "fr": "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Toute modification sera reflétée sur cette page et la date d'entrée en vigueur ci-dessous sera mise à jour en conséquence.",
+                "de": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Änderungen werden auf dieser Seite sichtbar, und das unten angegebene Aktualisierungsdatum wird entsprechend angepasst.",
+                "it": "Possiamo aggiornare questa informativa sulla privacy di tanto in tanto. Ogni modifica verrà riflessa in questa pagina e la data di entrata in vigore riportata di seguito sarà aggiornata di conseguenza.",
+                "ko": "본 개인정보 처리방침은 수시로 업데이트될 수 있습니다. 모든 변경 사항은 이 페이지에 반영되며, 아래의 최종 수정 날짜도 함께 업데이트됩니다.",
+                "pl": "Możemy od czasu do czasu aktualizować niniejszą politykę prywatności. Wszelkie zmiany zostaną odzwierciedlone na tej stronie, a data ostatniej aktualizacji poniżej zostanie odpowiednio zaktualizowana.",
+                "pt": "Podemos atualizar esta política de privacidade de tempos em tempos. Quaisquer alterações serão refletidas nesta página e a data da última atualização abaixo será ajustada de acordo.",
+                "nl": "Wij kunnen dit privacybeleid van tijd tot tijd bijwerken. Wijzigingen worden op deze pagina weergegeven en de onderstaande laatst bijgewerkt-datum wordt dienovereenkomstig bijgewerkt."
+            },
+            "sec8h2": {
+                "en": "Contact Us",
+                "ja": "お問い合わせ",
+                "fr": "Nous contacter",
+                "de": "Kontakt",
+                "it": "Contattaci",
+                "ko": "문의하기",
+                "pl": "Skontaktuj się z nami",
+                "pt": "Fale conosco",
+                "nl": "Neem contact op"
+            },
+            "sec8p": {
+                "en": "If you have any questions about this privacy policy, please contact us at <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>.",
+                "ja": "本プライバシーポリシーについてご質問がある場合は、<a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a> までお問い合わせください。",
+                "fr": "Si vous avez des questions concernant cette politique de confidentialité, contactez-nous à <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>.",
+                "de": "Bei Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>.",
+                "it": "Per qualsiasi domanda su questa informativa sulla privacy, contattaci all'indirizzo <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>.",
+                "ko": "본 개인정보 처리방침에 관한 문의사항이 있으시면 <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>으로 연락해 주세요.",
+                "pl": "Jeśli masz pytania dotyczące niniejszej polityki prywatności, skontaktuj się z nami pod adresem <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>.",
+                "pt": "Se você tiver dúvidas sobre esta política de privacidade, entre em contato conosco pelo e-mail <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>.",
+                "nl": "Hebt u vragen over dit privacybeleid, neem dan contact met ons op via <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>."
+            },
+            "updated": {
+                "en": "Last updated: October 6, 2026",
+                "ja": "最終更新日：2026年10月6日",
+                "fr": "Dernière mise à jour : 6 octobre 2026",
+                "de": "Zuletzt aktualisiert: 6. Oktober 2026",
+                "it": "Ultimo aggiornamento: 6 ottobre 2026",
+                "ko": "최종 수정: 2026년 10월 6일",
+                "pl": "Ostatnia aktualizacja: 6 października 2026",
+                "pt": "Última atualização: 6 de outubro de 2026",
+                "nl": "Laatst bijgewerkt: 6 oktober 2026",
+            },
+            "footer": {
+                "en": "<a href='index.html'>Privacy Policy</a> &middot; <a href='support.html'>Support</a>",
+                "ja": "<a href='index.html'>プライバシーポリシー</a> &middot; <a href='support.html'>サポート</a>",
+                "fr": "<a href='index.html'>Politique de confidentialité</a> &middot; <a href='support.html'>Assistance</a>",
+                "de": "<a href='index.html'>Datenschutzerklärung</a> &middot; <a href='support.html'>Support</a>",
+                "it": "<a href='index.html'>Informativa sulla privacy</a> &middot; <a href='support.html'>Assistenza</a>",
+                "ko": "<a href='index.html'>개인정보 처리방침</a> &middot; <a href='support.html'>지원</a>",
+                "pl": "<a href='index.html'>Polityka prywatności</a> &middot; <a href='support.html'>Pomoc</a>",
+                "pt": "<a href='index.html'>Política de Privacidade</a> &middot; <a href='support.html'>Suporte</a>",
+                "nl": "<a href='index.html'>Privacybeleid</a> &middot; <a href='support.html'>Ondersteuning</a>"
+            }
+        };
+
+        const SUPPORTED_LANGS = ["en", "ja", "fr", "de", "it", "ko", "pl", "pt", "nl"];
+        const STORAGE_KEY = "expenseTrackerSiteLang";
+
+        function detectLanguage() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored && SUPPORTED_LANGS.includes(stored)) return stored;
+            } catch (e) {}
+            const base = (navigator.language || "en").toLowerCase().split("-")[0];
+            return SUPPORTED_LANGS.includes(base) ? base : "en";
+        }
+
+        function applyLanguage(lang) {
+            document.documentElement.lang = lang;
+            const set = I18N[document.title] && document.querySelector("title");
+
+            document.querySelectorAll("[data-i18n]").forEach(function (el) {
+                const key = el.getAttribute("data-i18n");
+                const t = I18N[key];
+                if (t && t[lang]) el.textContent = t[lang];
+            });
+            document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+                const key = el.getAttribute("data-i18n-html");
+                const t = I18N[key];
+                if (t && t[lang]) el.innerHTML = t[lang];
+            });
+
+            const title = I18N["title"];
+            if (title && title[lang]) document.title = title[lang];
+
+            const sel = document.getElementById("langSelect");
+            if (sel) sel.value = lang;
+        }
+
+        function setLanguage(lang) {
+            try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+            applyLanguage(lang);
+        }
+
+        document.getElementById("langSelect").addEventListener("change", function () {
+            setLanguage(this.value);
+        });
+
+        applyLanguage(detectLanguage());
+    </script>
 </body>
 </html>

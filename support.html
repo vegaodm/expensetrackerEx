@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - Expense Tracker</title>
+    <title data-i18n="title">Support - Expense Tracker</title>
     <style>
         :root {
             --accent: #007AFF;
@@ -21,8 +21,40 @@
         header {
             background: var(--accent);
             color: #fff;
-            padding: 48px 24px;
+            padding: 40px 24px 32px;
             text-align: center;
+            position: relative;
+        }
+        .lang-select {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            padding: 4px;
+        }
+        .lang-select select {
+            font-size: 0.85rem;
+            font-family: inherit;
+            border: none;
+            background: transparent;
+            color: #fff;
+            padding: 4px 26px 4px 8px;
+            border-radius: 8px;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+        }
+        .lang-select select option { color: var(--text); }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
         }
         header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
         header p { opacity: 0.9; font-size: 0.95rem; }
@@ -41,92 +73,582 @@
         h2 { font-size: 1.15rem; margin-bottom: 12px; color: var(--accent); }
         p, li { font-size: 0.95rem; }
         ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
+        li { margin-bottom: 6px; }
+        .faq p { margin-top: 8px; }
+        .faq p strong {
+            display: block;
+            margin-top: 12px;
+            color: var(--text);
+        }
+        .faq p:first-of-type strong { margin-top: 0; }
         code {
             background: #f0f0f2;
             padding: 2px 6px;
             border-radius: 5px;
             font-size: 0.9em;
         }
+        .updated { text-align: center; margin-top: 24px; font-size: 0.85rem; color: var(--muted); }
         a { color: var(--accent); text-decoration: none; }
-        footer { text-align: center; padding: 24px; font-size: 0.85rem; color: var(--muted); }
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
         footer a { color: var(--accent); }
+        @media (max-width: 480px) {
+            .lang-select select { max-width: 110px; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Expense Tracker</h1>
-        <p>Support</p>
+        <div class="lang-select">
+            <label for="langSelect" class="visually-hidden" data-i18n="language">Language</label>
+            <select id="langSelect" aria-label="Language">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="ko">한국어</option>
+                <option value="pl">Polski</option>
+                <option value="pt">Português</option>
+                <option value="nl">Nederlands</option>
+            </select>
+        </div>
+        <h1 data-i18n="appName">Expense Tracker</h1>
+        <p data-i18n="tagline">Support</p>
     </header>
 
     <main>
         <section>
-            <h2>Getting Started</h2>
+            <h2 data-i18n="sec1h2">Getting Started</h2>
             <ul>
-                <li>Tap the <strong>+</strong> button on the Records tab to add a new expense.</li>
-                <li>Enter the amount, choose a category, pick the date, and add an optional note, then tap <strong>Save</strong>.</li>
-                <li>Tap any expense in the list to edit it; swipe left on an expense to delete it.</li>
-                <li>View monthly summaries and charts on the <strong>Stats</strong> tab.</li>
+                <li data-i18n="sec1li1">Tap the <strong>+</strong> button on the Records tab to add a new expense.</li>
+                <li data-i18n="sec1li2">Enter the amount, choose a category, pick the date, and add an optional note, then tap <strong>Save</strong>.</li>
+                <li data-i18n="sec1li3">Tap any expense in the list to edit it; swipe left on an expense to delete it.</li>
+                <li data-i18n="sec1li4">View monthly summaries and charts on the <strong>Stats</strong> tab.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Managing Categories</h2>
+            <h2 data-i18n="sec2h2">Managing Categories</h2>
             <ul>
-                <li>Open <strong>Settings</strong> &gt; <strong>Categories</strong> to see all categories.</li>
-                <li>Tap a category to edit its name, color, and icon.</li>
-                <li>Tap <strong>Add Category</strong> to create your own category.</li>
-                <li>User-created categories can be deleted by swiping left on them. Built-in categories can be edited but not deleted.</li>
-                <li>When a category is deleted, its expenses are automatically moved to <strong>Other</strong>.</li>
+                <li data-i18n="sec2li1">Open <strong>Settings</strong> &gt; <strong>Categories</strong> to see all categories.</li>
+                <li data-i18n="sec2li2">Tap a category to edit its name, color, and icon.</li>
+                <li data-i18n="sec2li3">Tap <strong>Add Category</strong> to create your own category.</li>
+                <li data-i18n="sec2li4">User-created categories can be deleted by swiping left on them. Built-in categories can be edited but not deleted.</li>
+                <li data-i18n="sec2li5">When a category is deleted, its expenses are automatically moved to <strong>Other</strong>.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Backup and Restore</h2>
-            <p>Your data is stored only on your device. To back it up or move it to another device:</p>
+            <h2 data-i18n="sec3h2">Backup and Restore</h2>
+            <p data-i18n="sec3intro">Your data is stored only on your device. To back it up or move it to another device:</p>
             <ul>
-                <li>In <strong>Settings</strong> &gt; <strong>Backup</strong>, tap <strong>Export Backup</strong> to save a copy of your database.</li>
-                <li>Tap <strong>Import Backup</strong> to restore from an exported file. Importing replaces all current data.</li>
-                <li>If a backup contains categories that are not recognized, the affected records are placed under <strong>Other</strong> so your spending history stays intact.</li>
+                <li data-i18n="sec3li1">In <strong>Settings</strong> &gt; <strong>Backup</strong>, tap <strong>Export Backup</strong> to save a copy of your database.</li>
+                <li data-i18n="sec3li2">Tap <strong>Import Backup</strong> to restore from an exported file. Importing replaces all current data.</li>
+                <li data-i18n="sec3li3">If a backup contains categories that are not recognized, the affected records are placed under <strong>Other</strong> so your spending history stays intact.</li>
+            </ul>
+        </section>
+
+        <section class="faq">
+            <h2 data-i18n="sec4h2">Frequently Asked Questions</h2>
+
+            <p><strong data-i18n="faq1q">Q: Where is my data stored?</strong></p>
+            <p data-i18n="faq1a">A: All data is stored locally on your device in a private SQLite database. Nothing is uploaded to the cloud or shared with anyone.</p>
+
+            <p><strong data-i18n="faq2q">Q: How do I transfer my data to a new iPhone?</strong></p>
+            <p data-i18n="faq2a">A: Export a backup on the old device, then import it on the new device. The backup file includes your expenses, categories, and settings.</p>
+
+            <p><strong data-i18n="faq3q">Q: Can I get a category back after deleting it?</strong></p>
+            <p data-i18n="faq3a">A: Deleted categories cannot be restored directly, but you can recreate them in <strong>Settings</strong> &gt; <strong>Add Category</strong> and re-assign expenses manually.</p>
+
+            <p><strong data-i18n="faq4q">Q: Import failed or the file was rejected?</strong></p>
+            <p data-i18n="faq4a">A: Make sure you selected a valid backup file created by the Export Backup feature. The app verifies the file before importing, so other SQLite files without the expected structure are rejected and your current data is left untouched.</p>
+            <p><strong data-i18n="faq5q">Q: What does the “Database Recovery” message mean?</strong></p>
+            <p data-i18n="faq5a">A: The app could not open your saved database, so it started with a new, empty one and kept the unreadable file on your device (named like db-corrupt-20261006-080937.sqlite). Your data was not sent anywhere. If you exported a backup before, import it in Settings &gt; Backup to restore your records; deleting the app removes the kept file.</p>
+        </section>
+
+        <section>
+            <h2 data-i18n="sec5h2">Known Issues</h2>
+            <ul>
+                <li data-i18n="sec5li1">Amounts are entered without a currency symbol. The app uses your device's number format (for example, <code>1,234.56</code> or <code>1.234,56</code>). The selected currency is for display only and does not convert saved amounts.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Frequently Asked Questions</h2>
-
-            <p><strong>Q: Where is my data stored?</strong></p>
-            <p>A: All data is stored locally on your device in a private SQLite database. Nothing is uploaded to the cloud or shared with anyone.</p>
-
-            <p><strong>Q: How do I transfer my data to a new iPhone?</strong></p>
-            <p>A: Export a backup on the old device, then import it on the new device. The backup file includes your expenses, categories, and settings.</p>
-
-            <p><strong>Q: Can I get a category back after deleting it?</strong></p>
-            <p>A: Deleted categories cannot be restored directly, but you can recreate them in <strong>Settings</strong> &gt; <strong>Add Category</strong> and re-assign expenses manually.</p>
-
-            <p><strong>Q: Import failed or the file was rejected?</strong></p>
-            <p>A: Make sure you selected a valid backup file created by the Export Backup feature. Other SQLite files without the expected structure will be rejected.</p>
-        </section>
-
-        <section>
-            <h2>Known Issues</h2>
-            <ul>
-                <li>Amounts are entered without a currency symbol; the app displays plain decimal numbers (for example, <code>1,234.56</code>).</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Contact Support</h2>
-            <p>
+            <h2 data-i18n="sec6h2">Contact Support</h2>
+            <p data-i18n-html="sec6p">
                 If you need further assistance or found a bug, please contact us at
                 <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a>.
                 Please include your app version (shown in <strong>Settings</strong> &gt; <strong>About</strong>)
                 and a description of the problem.
             </p>
         </section>
+
+        <p class="updated" data-i18n="updated">Last updated: October 6, 2026</p>
     </main>
 
-    <footer>
+    <footer data-i18n-html="footer">
         <a href="index.html">Privacy Policy</a> &middot; <a href="support.html">Support</a>
     </footer>
+
+    <script>
+        const I18N = {
+            "title": {
+                "en": "Support - Expense Tracker",
+                "ja": "サポート - 支出トラッカー",
+                "fr": "Assistance - Suivi des dépenses",
+                "de": "Support - Ausgaben-Tracker",
+                "it": "Assistenza - Tracker delle spese",
+                "ko": "지원 - 지출 트래커",
+                "pl": "Pomoc - Śledzenie wydatków",
+                "pt": "Suporte - Rastreador de Despesas",
+                "nl": "Ondersteuning - Uitgaven Tracker"
+            },
+            "appName": {
+                "en": "Expense Tracker",
+                "ja": "支出トラッカー",
+                "fr": "Suivi des dépenses",
+                "de": "Ausgaben-Tracker",
+                "it": "Tracker delle spese",
+                "ko": "지출 트래커",
+                "pl": "Śledzenie wydatków",
+                "pt": "Rastreador de Despesas",
+                "nl": "Uitgaven Tracker"
+            },
+            "tagline": {
+                "en": "Support",
+                "ja": "サポート",
+                "fr": "Assistance",
+                "de": "Support",
+                "it": "Assistenza",
+                "ko": "지원",
+                "pl": "Pomoc",
+                "pt": "Suporte",
+                "nl": "Ondersteuning"
+            },
+            "language": {
+                "en": "Language",
+                "ja": "言語",
+                "fr": "Langue",
+                "de": "Sprache",
+                "it": "Lingua",
+                "ko": "언어",
+                "pl": "Język",
+                "pt": "Idioma",
+                "nl": "Taal"
+            },
+            "sec1h2": {
+                "en": "Getting Started",
+                "ja": "はじめに",
+                "fr": "Pour commencer",
+                "de": "Erste Schritte",
+                "it": "Per iniziare",
+                "ko": "시작하기",
+                "pl": "Pierwsze kroki",
+                "pt": "Primeiros passos",
+                "nl": "Aan de slag"
+            },
+            "sec1li1": {
+                "en": "Tap the + button on the Records tab to add a new expense.",
+                "ja": "「記録」タブの「+」ボタンをタップして、新しい支出を追加します。",
+                "fr": "Touchez le bouton « + » sur l'onglet Opérations pour ajouter une nouvelle dépense.",
+                "de": "Tippen Sie auf die Taste „+” im Tab Buchungen, um eine neue Ausgabe hinzuzufügen.",
+                "it": "Tocca il pulsante « + » nella scheda Movimenti per aggiungere una nuova spesa.",
+                "ko": "'기록' 탭의 '+' 버튼을 탭하여 새 지출을 추가합니다.",
+                "pl": "Naciśnij przycisk „+” na karcie Transakcje, aby dodać nowy wydatek.",
+                "pt": "Toque no botão « + » na aba Registros para adicionar uma nova despesa.",
+                "nl": "Tik op de knop « + » op het tabblad Transacties om een nieuwe uitgave toe te voegen."
+            },
+            "sec1li2": {
+                "en": "Enter the amount, choose a category, pick the date, and add an optional note, then tap Save.",
+                "ja": "金額を入力し、カテゴリを選び、日付と任意のメモを設定して「保存」をタップします。",
+                "fr": "Saisissez le montant, choisissez une catégorie, sélectionnez la date, ajoutez éventuellement une note, puis touchez Enregistrer.",
+                "de": "Geben Sie den Betrag ein, wählen Sie eine Kategorie, ein Datum und optional eine Notiz, dann tippen Sie auf Sichern.",
+                "it": "Inserisci l'importo, scegli una categoria, seleziona la data e aggiungi un'eventuale nota, quindi tocca Salva.",
+                "ko": "금액을 입력하고 카테고리를 선택한 다음 날짜와 메모(선택)를 지정한 후 '저장'을 탭합니다.",
+                "pl": "Wpisz kwotę, wybierz kategorię, podaj datę i opcjonalnie dodaj notatkę, a następnie naciśnij Zapisz.",
+                "pt": "Insira o valor, escolha uma categoria, selecione a data e adicione uma nota opcional, depois toque em Salvar.",
+                "nl": "Voer het bedrag in, kies een categorie, selecteer de datum en voeg eventueel een notitie toe, tik daarna op Opslaan."
+            },
+            "sec1li3": {
+                "en": "Tap any expense in the list to edit it; swipe left on an expense to delete it.",
+                "ja": "一覧の支出をタップすると編集でき、支出を左にスワイプすると削除できます。",
+                "fr": "Touchez une dépense de la liste pour la modifier ; balayez une dépense vers la gauche pour la supprimer.",
+                "de": "Tippen Sie auf eine Ausgabe in der Liste, um sie zu bearbeiten; wischen Sie eine Ausgabe nach links, um sie zu löschen.",
+                "it": "Tocca una spesa nell'elenco per modificarla; scorri verso sinistra su una spesa per eliminarla.",
+                "ko": "목록에서 지출을 탭하면 수정할 수 있고, 지출을 왼쪽으로 스와이프하면 삭제할 수 있습니다.",
+                "pl": "Kliknij wydatek na liście, aby go edytować; przesuń wydatek w lewo, aby go usunąć.",
+                "pt": "Toque em uma despesa na lista para editá-la; deslize uma despesa para a esquerda para excluí-la.",
+                "nl": "Tik op een uitgave in de lijst om deze te bewerken; veeg een uitgave naar links om deze te verwijderen."
+            },
+            "sec1li4": {
+                "en": "View monthly summaries and charts on the Stats tab.",
+                "ja": "「統計」タブで月ごとの集計とグラフを確認できます。",
+                "fr": "Consultez les résumés mensuels et les graphiques sur l'onglet Statistiques.",
+                "de": "Sehen Sie sich die Monatsübersichten und Diagramme im Tab Statistik an.",
+                "it": "Visualizza i riepiloghi mensili e i grafici nella scheda Statistiche.",
+                "ko": "'통계' 탭에서 월별 요약과 차트를 확인할 수 있습니다.",
+                "pl": "Przeglądaj miesięczne podsumowania i wykresy na karcie Statystyki.",
+                "pt": "Veja os resumos mensais e os gráficos na aba Estatísticas.",
+                "nl": "Bekijk maandoverzichten en grafieken op het tabblad Statistieken."
+            },
+            "sec2h2": {
+                "en": "Managing Categories",
+                "ja": "カテゴリの管理",
+                "fr": "Gérer les catégories",
+                "de": "Kategorien verwalten",
+                "it": "Gestione delle categorie",
+                "ko": "카테고리 관리",
+                "pl": "Zarządzanie kategoriami",
+                "pt": "Gerenciar categorias",
+                "nl": "Categorieën beheren"
+            },
+            "sec2li1": {
+                "en": "Open Settings > Categories to see all categories.",
+                "ja": "「設定」>「カテゴリ」を開くと、すべてのカテゴリを確認できます。",
+                "fr": "Ouvrez Réglages > Catégories pour voir toutes les catégories.",
+                "de": "Öffnen Sie Einstellungen > Kategorien, um alle Kategorien zu sehen.",
+                "it": "Apri Impostazioni > Categorie per vedere tutte le categorie.",
+                "ko": "'설정' > '카테고리'를 열면 모든 카테고리를 볼 수 있습니다.",
+                "pl": "Otwórz Ustawienia > Kategorie, aby zobaczyć wszystkie kategorie.",
+                "pt": "Abra Ajustes > Categorias para ver todas as categorias.",
+                "nl": "Open Instellingen > Categorieën om alle categorieën te bekijken."
+            },
+            "sec2li2": {
+                "en": "Tap a category to edit its name, color, and icon.",
+                "ja": "カテゴリをタップすると、名前・色・アイコンを編集できます。",
+                "fr": "Touchez une catégorie pour modifier son nom, sa couleur et son icône.",
+                "de": "Tippen Sie auf eine Kategorie, um Namen, Farbe und Symbol zu bearbeiten.",
+                "it": "Tocca una categoria per modificare nome, colore e icona.",
+                "ko": "카테고리를 탭하면 이름, 색상, 아이콘을 수정할 수 있습니다.",
+                "pl": "Kliknij kategorię, aby edytować jej nazwę, kolor i ikonę.",
+                "pt": "Toque em uma categoria para editar seu nome, cor e ícone.",
+                "nl": "Tik op een categorie om de naam, kleur en het pictogram te bewerken."
+            },
+            "sec2li3": {
+                "en": "Tap Add Category to create your own category.",
+                "ja": "「カテゴリを追加」をタップすると、独自のカテゴリを作成できます。",
+                "fr": "Touchez Ajouter une catégorie pour créer votre propre catégorie.",
+                "de": "Tippen Sie auf Kategorie hinzufügen, um eine eigene Kategorie zu erstellen.",
+                "it": "Tocca Aggiungi categoria per creare una categoria personalizzata.",
+                "ko": "'카테고리 추가'를 탭하면 나만의 카테고리를 만들 수 있습니다.",
+                "pl": "Kliknij Dodaj kategorię, aby utworzyć własną kategorię.",
+                "pt": "Toque em Adicionar categoria para criar sua própria categoria.",
+                "nl": "Tik op Categorie toevoegen om een eigen categorie te maken."
+            },
+            "sec2li4": {
+                "en": "User-created categories can be deleted by swiping left on them. Built-in categories can be edited but not deleted.",
+                "ja": "自分で作成したカテゴリは左にスワイプすると削除できます。標準のカテゴリは編集できますが、削除できません。",
+                "fr": "Les catégories créées par l'utilisateur peuvent être supprimées en les balayant vers la gauche. Les catégories intégrées peuvent être modifiées mais pas supprimées.",
+                "de": "Selbst erstellte Kategorien können durch Wischen nach links gelöscht werden. Integrierte Kategorien können bearbeitet, aber nicht gelöscht werden.",
+                "it": "Le categorie create dall'utente possono essere eliminate scorrendo verso sinistra. Le categorie predefinite possono essere modificate ma non eliminate.",
+                "ko": "직접 만든 카테고리는 왼쪽으로 스와이프하면 삭제할 수 있습니다. 기본 카테고리는 수정할 수 있지만 삭제할 수는 없습니다.",
+                "pl": "Kategorie utworzone przez użytkownika można usuwać, przesuwając je w lewo. Kategorie wbudowane można edytować, ale nie można ich usunąć.",
+                "pt": "As categorias criadas pelo usuário podem ser excluídas deslizando-as para a esquerda. As categorias integradas podem ser editadas, mas não excluídas.",
+                "nl": "Zelfgemaakte categorieën kunnen worden verwijderd door er naar links over te vegen. Ingebouwde categorieën kunnen worden bewerkt, maar niet worden verwijderd."
+            },
+            "sec2li5": {
+                "en": "When a category is deleted, its expenses are automatically moved to Other.",
+                "ja": "カテゴリを削除すると、その支出は自動的に「その他」へ移動します。",
+                "fr": "Lorsqu'une catégorie est supprimée, ses dépenses sont automatiquement déplacées dans Autre.",
+                "de": "Beim Löschen einer Kategorie werden ihre Ausgaben automatisch in Sonstiges verschoben.",
+                "it": "Quando una categoria viene eliminata, le sue spese vengono spostate automaticamente in Altro.",
+                "ko": "카테고리를 삭제하면 해당 지출이 자동으로 '기타'로 이동합니다.",
+                "pl": "Gdy kategoria zostanie usunięta, jej wydatki są automatycznie przenoszone do kategorii Inne.",
+                "pt": "Quando uma categoria é excluída, suas despesas são movidas automaticamente para Outros.",
+                "nl": "Wanneer een categorie wordt verwijderd, worden de bijbehorende uitgaven automatisch verplaatst naar Overig."
+            },
+            "sec3h2": {
+                "en": "Backup and Restore",
+                "ja": "バックアップと復元",
+                "fr": "Sauvegarde et restauration",
+                "de": "Sicherung und Wiederherstellung",
+                "it": "Backup e ripristino",
+                "ko": "백업 및 복원",
+                "pl": "Kopia zapasowa i przywracanie",
+                "pt": "Backup e restauração",
+                "nl": "Back-up en herstel"
+            },
+            "sec3intro": {
+                "en": "Your data is stored only on your device. To back it up or move it to another device:",
+                "ja": "あなたのデータはデバイス上にのみ保存されます。バックアップを取る場合や別のデバイスへ移行する場合は、次の手順に従ってください。",
+                "fr": "Vos données sont stockées uniquement sur votre appareil. Pour les sauvegarder ou les transférer vers un autre appareil :",
+                "de": "Ihre Daten werden ausschließlich auf Ihrem Gerät gespeichert. Gehen Sie zum Sichern oder Übertragen auf ein anderes Gerät folgendermaßen vor:",
+                "it": "I tuoi dati sono memorizzati solo sul tuo dispositivo. Per eseguirne il backup o trasferirli su un altro dispositivo:",
+                "ko": "데이터는 기기에만 저장됩니다. 백업하거나 다른 기기로 옮기려면 다음 단계를 따르세요.",
+                "pl": "Twoje dane są przechowywane wyłącznie na Twoim urządzeniu. Aby je zarchiwizować lub przenieść na inne urządzenie:",
+                "pt": "Seus dados são armazenados apenas no seu dispositivo. Para fazer backup ou transferi-los para outro dispositivo:",
+                "nl": "Uw gegevens worden alleen op uw apparaat opgeslagen. Om ze te back-uppen of over te zetten naar een ander apparaat:"
+            },
+            "sec3li1": {
+                "en": "In Settings > Backup, tap Export Backup to save a copy of your database.",
+                "ja": "「設定」>「バックアップ」で「バックアップを書き出し」をタップすると、データベースのコピーを保存できます。",
+                "fr": "Dans Réglages > Sauvegarde, touchez Exporter la sauvegarde pour enregistrer une copie de votre base de données.",
+                "de": "Tippen Sie unter Einstellungen > Sicherung auf Sicherung exportieren, um eine Kopie Ihrer Datenbank zu speichern.",
+                "it": "In Impostazioni > Backup, tocca Esporta backup per salvare una copia del tuo database.",
+                "ko": "'설정' > '백업'에서 '백업 내보내기'를 탭하면 데이터베이스 사본을 저장할 수 있습니다.",
+                "pl": "W Ustawieniach > Kopia zapasowa kliknij Eksportuj kopię zapasową, aby zapisać kopię bazy danych.",
+                "pt": "Em Ajustes > Backup, toque em Exportar backup para salvar uma cópia do seu banco de dados.",
+                "nl": "Tik in Instellingen > Back-up op Back-up exporteren om een kopie van uw database op te slaan."
+            },
+            "sec3li2": {
+                "en": "Tap Import Backup to restore from an exported file. Importing replaces all current data.",
+                "ja": "「バックアップを読み込み」をタップすると、書き出したファイルから復元できます。読み込みを行うと、現在のすべてのデータが置き換えられます。",
+                "fr": "Touchez Importer la sauvegarde pour restaurer à partir d'un fichier exporté. L'importation remplace toutes les données actuelles.",
+                "de": "Tippen Sie auf Sicherung importieren, um aus einer exportierten Datei wiederherzustellen. Beim Import werden alle aktuellen Daten ersetzt.",
+                "it": "Tocca Importa backup per ripristinare da un file esportato. L'importazione sostituisce tutti i dati correnti.",
+                "ko": "'백업 가져오기'를 탭하면 내보낸 파일에서 복원할 수 있습니다. 가져오기를 수행하면 현재 모든 데이터가 대체됩니다.",
+                "pl": "Kliknij Importuj kopię zapasową, aby przywrócić dane z wyeksportowanego pliku. Import zastępuje wszystkie bieżące dane.",
+                "pt": "Toque em Importar backup para restaurar a partir de um arquivo exportado. A importação substitui todos os dados atuais.",
+                "nl": "Tik op Back-up importeren om te herstellen uit een geëxporteerd bestand. Importeren vervangt alle huidige gegevens."
+            },
+            "sec3li3": {
+                "en": "If a backup contains categories that are not recognized, the affected records are placed under Other so your spending history stays intact.",
+                "ja": "バックアップに認識できないカテゴリが含まれている場合、該当の記録は「その他」にまとめられるため、支払い履歴は失われません。",
+                "fr": "Si une sauvegarde contient des catégories non reconnues, les enregistrements concernés sont placés dans Autre afin que votre historique de dépenses reste intact.",
+                "de": "Enthält eine Sicherung nicht erkannte Kategorien, werden die betroffenen Datensätze in Sonstiges verschoben, sodass Ihr Ausgabenverlauf erhalten bleibt.",
+                "it": "Se un backup contiene categorie non riconosciute, i record interessati vengono inseriti in Altro, così la cronologia delle spese resta intatta.",
+                "ko": "백업에 인식되지 않는 카테고리가 포함된 경우 해당 기록은 '기타'에 정리되어 지출 내역이 온전히 유지됩니다.",
+                "pl": "Jeśli kopia zapasowa zawiera nierozpoznane kategorie, odpowiednie rekordy zostają umieszczone w kategorii Inne, dzięki czemu historia wydatków pozostaje nienaruszona.",
+                "pt": "Se um backup contiver categorias não reconhecidas, os registros afetados são colocados em Outros para que seu histórico de gastos permaneça intacto.",
+                "nl": "Bevat een back-up categorieën die niet worden herkend, dan worden de betreffende records onder Overig geplaatst, zodat uw uitgavengeschiedenis intact blijft."
+            },
+            "sec4h2": {
+                "en": "Frequently Asked Questions",
+                "ja": "よくある質問",
+                "fr": "Questions fréquentes",
+                "de": "Häufig gestellte Fragen",
+                "it": "Domande frequenti",
+                "ko": "자주 묻는 질문",
+                "pl": "Często zadawane pytania",
+                "pt": "Perguntas frequentes",
+                "nl": "Veelgestelde vragen"
+            },
+            "faq1q": {
+                "en": "Q: Where is my data stored?",
+                "ja": "Q：データはどこに保存されますか？",
+                "fr": "Q : Où mes données sont-elles stockées ?",
+                "de": "F: Wo werden meine Daten gespeichert?",
+                "it": "D: Dove vengono memorizzati i miei dati?",
+                "ko": "Q: 데이터는 어디에 저장되나요?",
+                "pl": "P: Gdzie przechowywane są moje dane?",
+                "pt": "P: Onde meus dados são armazenados?",
+                "nl": "V: Waar worden mijn gegevens opgeslagen?"
+            },
+            "faq1a": {
+                "en": "A: All data is stored locally on your device in a private SQLite database. Nothing is uploaded to the cloud or shared with anyone.",
+                "ja": "A：すべてのデータは、デバイス上のプライベートなSQLiteデータベースにローカル保存されます。クラウドにアップロードされたり、誰かと共有されたりすることはありません。",
+                "fr": "R : Toutes les données sont stockées localement sur votre appareil dans une base de données SQLite privée. Rien n'est téléversé dans le cloud ni partagé avec qui que ce soit.",
+                "de": "A: Alle Daten werden lokal auf Ihrem Gerät in einer privaten SQLite-Datenbank gespeichert. Es wird nichts in die Cloud hochgeladen oder mit anderen geteilt.",
+                "it": "R: Tutti i dati sono memorizzati localmente sul tuo dispositivo in un database SQLite privato. Nulla viene caricato sul cloud o condiviso con chiunque.",
+                "ko": "A: 모든 데이터는 기기의 비공개 SQLite 데이터베이스에 로컬로 저장됩니다. 클라우드에 업로드되거나 다른 사람과 공유되지 않습니다.",
+                "pl": "O: Wszystkie dane są przechowywane lokalnie na Twoim urządzeniu w prywatnej bazie SQLite. Nic nie jest przesyłane do chmury ani udostępniane innym osobom.",
+                "pt": "R: Todos os dados são armazenados localmente no seu dispositivo em um banco de dados SQLite privado. Nada é enviado para a nuvem ou compartilhado com ninguém.",
+                "nl": "A: Alle gegevens worden lokaal op uw apparaat opgeslagen in een privé-SQLite-database. Er wordt niets naar de cloud geüpload of met anderen gedeeld."
+            },
+            "faq2q": {
+                "en": "Q: How do I transfer my data to a new iPhone?",
+                "ja": "Q：新しいiPhoneにデータを移行するにはどうすればよいですか？",
+                "fr": "Q : Comment transférer mes données vers un nouvel iPhone ?",
+                "de": "F: Wie übertrage ich meine Daten auf ein neues iPhone?",
+                "it": "D: Come trasferisco i miei dati su un nuovo iPhone?",
+                "ko": "Q: 새 iPhone으로 데이터를 어떻게 옮기나요?",
+                "pl": "P: Jak przenieść dane na nowego iPhone'a?",
+                "pt": "P: Como transfiro meus dados para um novo iPhone?",
+                "nl": "V: Hoe verplaats ik mijn gegevens naar een nieuwe iPhone?"
+            },
+            "faq2a": {
+                "en": "A: Export a backup on the old device, then import it on the new device. The backup file includes your expenses, categories, and settings.",
+                "ja": "A：古いデバイスでバックアップを書き出し、新しいデバイスで読み込みます。バックアップファイルには支出・カテゴリ・設定が含まれます。",
+                "fr": "R : Exportez une sauvegarde sur l'ancien appareil, puis importez-la sur le nouveau. Le fichier de sauvegarde contient vos dépenses, vos catégories et vos réglages.",
+                "de": "A: Exportieren Sie auf dem alten Gerät eine Sicherung und importieren Sie sie auf dem neuen. Die Sicherungsdatei enthält Ihre Ausgaben, Kategorien und Einstellungen.",
+                "it": "R: Esporta un backup sul vecchio dispositivo, poi importalo su quello nuovo. Il file di backup include spese, categorie e impostazioni.",
+                "ko": "A: 기존 기기에서 백업을 내보낸 후 새 기기에서 가져오면 됩니다. 백업 파일에는 지출, 카테고리, 설정이 포함됩니다.",
+                "pl": "O: Wyeksportuj kopię zapasową na starym urządzeniu, a następnie zaimportuj ją na nowym. Plik kopii obejmuje wydatki, kategorie i ustawienia.",
+                "pt": "R: Exporte um backup no dispositivo antigo e importe-o no novo. O arquivo de backup inclui suas despesas, categorias e configurações.",
+                "nl": "A: Exporteer een back-up op het oude apparaat en importeer deze op het nieuwe apparaat. Het back-upbestand bevat uw uitgaven, categorieën en instellingen."
+            },
+            "faq3q": {
+                "en": "Q: Can I get a category back after deleting it?",
+                "ja": "Q：削除したカテゴリを戻すことはできますか？",
+                "fr": "Q : Puis-je récupérer une catégorie après l'avoir supprimée ?",
+                "de": "F: Kann ich eine gelöschte Kategorie wiederherstellen?",
+                "it": "D: Posso recuperare una categoria dopo averla eliminata?",
+                "ko": "Q: 삭제한 카테고리를 되돌릴 수 있나요?",
+                "pl": "P: Czy mogę odzyskać usuniętą kategorię?",
+                "pt": "P: Posso recuperar uma categoria após excluí-la?",
+                "nl": "V: Kan ik een categorie terugkrijgen nadat ik deze heb verwijderd?"
+            },
+            "faq3a": {
+                "en": "A: Deleted categories cannot be restored directly, but you can recreate them in Settings > Add Category and re-assign expenses manually.",
+                "ja": "A：削除したカテゴリを直接復元することはできませんが、「設定」>「カテゴリを追加」で再作成し、支出を手動で再割り当てできます。",
+                "fr": "R : Les catégories supprimées ne peuvent pas être restaurées directement, mais vous pouvez les recréer dans Réglages > Ajouter une catégorie et réattribuer les dépenses manuellement.",
+                "de": "A: Gelöschte Kategorien können nicht direkt wiederhergestellt werden, aber Sie können sie unter Einstellungen > Kategorie hinzufügen neu anlegen und die Ausgaben manuell neu zuordnen.",
+                "it": "R: Le categorie eliminate non possono essere ripristinate direttamente, ma puoi ricrearle in Impostazioni > Aggiungi categoria e riassegnare le spese manualmente.",
+                "ko": "A: 삭제된 카테고리를 직접 되돌릴 수는 없지만, '설정' > '카테고리 추가'에서 다시 만들고 지출을 수동으로 다시 지정할 수 있습니다.",
+                "pl": "O: Usuniętych kategorii nie można przywrócić bezpośrednio, ale można je odtworzyć w Ustawieniach > Dodaj kategorię i ręcznie przypisać wydatki na nowo.",
+                "pt": "R: Categorias excluídas não podem ser restauradas diretamente, mas você pode recriá-las em Ajustes > Adicionar categoria e reatribuir as despesas manualmente.",
+                "nl": "A: Verwijderde categorieën kunnen niet direct worden hersteld, maar u kunt ze opnieuw aanmaken via Instellingen > Categorie toevoegen en de uitgaven handmatig opnieuw toewijzen."
+            },
+            "faq4q": {
+                "en": "Q: Import failed or the file was rejected?",
+                "ja": "Q：読み込みに失敗しました。またはファイルが拒否されました。",
+                "fr": "Q : L'importation a échoué ou le fichier a été rejeté ?",
+                "de": "F: Der Import ist fehlgeschlagen oder die Datei wurde abgelehnt?",
+                "it": "D: L'importazione non è riuscita o il file è stato rifiutato?",
+                "ko": "Q: 가져오기가 실패했거나 파일이 거부되었습니다.",
+                "pl": "P: Import się nie powiódł lub plik został odrzucony?",
+                "pt": "P: A importação falhou ou o arquivo foi rejeitado?",
+                "nl": "V: Import mislukt of het bestand is afgewezen?"
+            },
+            "faq4a": {
+                "en": "A: Make sure you selected a valid backup file created by the Export Backup feature. The app verifies the file before importing, so other SQLite files without the expected structure are rejected and your current data is left untouched.",
+                "ja": "A：「バックアップを書き出し」機能で作成した有効なバックアップファイルを選択していることを確認してください。読み込み前にファイルが検証されるため、想定された構造でないSQLiteファイルは拒否され、現在のデータはそのまま保持されます。",
+                "fr": "R : Assurez-vous d'avoir sélectionné un fichier de sauvegarde valide créé par la fonction Exporter la sauvegarde. L'application vérifie le fichier avant l'import : les autres fichiers SQLite sans la structure attendue sont rejetés et vos données actuelles restent intactes.",
+                "de": "A: Vergewissern Sie sich, dass Sie eine gültige, von der Funktion Sicherung exportieren erstellte Sicherungsdatei ausgewählt haben. Die App prüft die Datei vor dem Import: Andere SQLite-Dateien ohne die erwartete Struktur werden abgelehnt und Ihre aktuellen Daten bleiben unverändert.",
+                "it": "R: Assicurati di aver selezionato un file di backup valido creato dalla funzione Esporta backup. L'app verifica il file prima dell'importazione: gli altri file SQLite senza la struttura prevista vengono rifiutati e i tuoi dati attuali restano intatti.",
+                "ko": "A: '백업 내보내기' 기능으로 만든 유효한 백업 파일을 선택했는지 확인하세요. 가져오기 전에 파일을 검사하므로 예상된 구조가 아닌 SQLite 파일은 거부되고 현재 데이터는 그대로 유지됩니다.",
+                "pl": "O: Upewnij się, że wybrano prawidłowy plik kopii zapasowej utworzony funkcją Eksportuj kopię zapasową. Aplikacja sprawdza plik przed importem: inne pliki SQLite o nieoczekiwanej strukturze są odrzucane, a bieżące dane pozostają nienaruszone.",
+                "pt": "R: Certifique-se de ter selecionado um arquivo de backup válido criado pelo recurso Exportar backup. O aplicativo verifica o arquivo antes de importar: outros arquivos SQLite sem a estrutura esperada são rejeitados e seus dados atuais permanecem intactos.",
+                "nl": "A: Zorg ervoor dat u een geldig back-upbestand heeft geselecteerd dat is gemaakt met de functie Back-up exporteren. De app controleert het bestand vóór het importeren: andere SQLite-bestanden zonder de verwachte structuur worden geweigerd en uw huidige gegevens blijven ongewijzigd.",
+            },
+            "faq5q": {
+                "en": "Q: What does the “Database Recovery” message mean?",
+                "ja": "Q：「データベースの復元」というメッセージは何ですか？",
+                "fr": "Q : Que signifie le message « Récupération de la base de données » ?",
+                "de": "F: Was bedeutet die Meldung „Datenbankwiederherstellung“?",
+                "it": "D: Cosa significa il messaggio «Recupero del database»?",
+                "ko": "Q: '데이터베이스 복구' 메시지는 무엇인가요?",
+                "pl": "P: Co oznacza komunikat „Odzyskiwanie bazy danych”?",
+                "pt": "P: O que significa a mensagem “Recuperação do banco de dados”?",
+                "nl": "V: Wat betekent het bericht “Databaseherstel”?",
+            },
+            "faq5a": {
+                "en": "A: The app could not open your saved database, so it started with a new, empty one and kept the unreadable file on your device (named like db-corrupt-20261006-080937.sqlite). Your data was not sent anywhere. If you exported a backup before, import it in Settings > Backup to restore your records; deleting the app removes the kept file.",
+                "ja": "A：保存されたデータベースを開けなかったため、新しい空のデータベースで起動し、開けなかったファイルはデバイス内に退避されました（名前は db-corrupt-20261006-080937.sqlite のような形式です）。データがどこかへ送信されることはありません。以前にバックアップを書き出している場合は、「設定」>「バックアップ」から読み込んで記録を復元できます。アプリを削除すると退避されたファイルも削除されます。",
+                "fr": "R : L'application n'a pas pu ouvrir votre base de données ; elle a donc démarré avec une base vide et a conservé le fichier illisible sur votre appareil (nommé par exemple db-corrupt-20261006-080937.sqlite). Vos données n'ont été envoyées nulle part. Si vous avez exporté une sauvegarde, importez-la dans Réglages > Sauvegarde pour restaurer vos enregistrements ; la suppression de l'app efface le fichier conservé.",
+                "de": "A: Die App konnte Ihre gespeicherte Datenbank nicht öffnen, hat daher mit einer neuen, leeren Datenbank gestartet und die unlesbare Datei auf Ihrem Gerät aufbewahrt (Name z. B. db-corrupt-20261006-080937.sqlite). Ihre Daten wurden nirgendwohin gesendet. Wenn Sie zuvor eine Sicherung exportiert haben, importieren Sie sie unter Einstellungen > Sicherung, um Ihre Daten wiederherzustellen; beim Löschen der App wird die aufbewahrte Datei entfernt.",
+                "it": "R: L'app non è riuscita ad aprire il database salvato, quindi è partita con uno nuovo e vuoto e ha conservato il file illeggibile sul tuo dispositivo (con un nome simile a db-corrupt-20261006-080937.sqlite). I tuoi dati non sono stati inviati da nessuna parte. Se hai esportato un backup, importalo in Impostazioni > Backup per ripristinare i tuoi dati; eliminando l'app il file conservato viene rimosso.",
+                "ko": "A: 저장된 데이터베이스를 열 수 없어 앱이 새 빈 데이터베이스로 시작되었고, 열 수 없는 파일은 기기에 db-corrupt-20261006-080937.sqlite 같은 이름으로 보관되었습니다. 데이터는 어디에도 전송되지 않았습니다. 이전에 백업을 내보냈다면 '설정' > '백업'에서 가져와 기록을 복원할 수 있으며, 앱을 삭제하면 보관된 파일도 제거됩니다.",
+                "pl": "O: Aplikacja nie mogła otworzyć zapisanej bazy danych, więc uruchomiła się z nową, pustą bazą, a nieczytelny plik zachowała na urządzeniu (o nazwie takiej jak db-corrupt-20261006-080937.sqlite). Twoje dane nie zostały nigdzie wysłane. Jeśli wcześniej wyeksportowano kopię zapasową, zaimportuj ją w Ustawieniach > Kopia zapasowa, aby przywrócić dane; usunięcie aplikacji usuwa także zachowany plik.",
+                "pt": "R: O aplicativo não conseguiu abrir o banco de dados salvo, então iniciou com um novo e vazio e manteve o arquivo ilegível no seu dispositivo (com um nome como db-corrupt-20261006-080937.sqlite). Seus dados não foram enviados a lugar nenhum. Se você exportou um backup, importe-o em Ajustes > Backup para restaurar seus registros; excluir o aplicativo remove o arquivo mantido.",
+                "nl": "A: De app kon uw opgeslagen database niet openen, is daarom gestart met een nieuwe, lege database en heeft het onleesbare bestand op uw apparaat bewaard (met een naam als db-corrupt-20261006-080937.sqlite). Uw gegevens zijn nergens naartoe verzonden. Hebt u eerder een back-up geëxporteerd, importeer die dan via Instellingen > Back-up om uw gegevens te herstellen; bij het verwijderen van de app wordt het bewaarde bestand verwijderd.",
+            },
+            "sec5h2": {
+                "en": "Known Issues",
+                "ja": "既知の問題",
+                "fr": "Problèmes connus",
+                "de": "Bekannte Probleme",
+                "it": "Problemi noti",
+                "ko": "알려진 문제",
+                "pl": "Znane problemy",
+                "pt": "Problemas conhecidos",
+                "nl": "Bekende problemen"
+            },
+            "sec5li1": {
+                "en": "Amounts are entered without a currency symbol. The app uses your device's number format (for example, 1,234.56 or 1.234,56). The selected currency is for display only and does not convert saved amounts.",
+                "ja": "金額は通貨記号なしで入力します。表示はデバイスの数値形式に従います（例：1,234.56 または 1.234,56）。選択した通貨は表示専用で、保存された金額は換算されません。",
+                "fr": "Les montants sont saisis sans symbole de devise. L'application utilise le format de nombre de votre appareil (par exemple 1,234.56 ou 1.234,56). La devise choisie est purement indicative : elle ne convertit pas les montants enregistrés.",
+                "de": "Beträge werden ohne Währungssymbol eingegeben. Die App verwendet das Zahlenformat Ihres Geräts (z. B. 1,234.56 oder 1.234,56). Die ausgewählte Währung dient nur der Anzeige und rechnet gespeicherte Beträge nicht um.",
+                "it": "Gli importi vengono inseriti senza simbolo di valuta. L'app usa il formato numerico del tuo dispositivo (ad esempio 1,234.56 o 1.234,56). La valuta selezionata è solo per la visualizzazione e non converte gli importi salvati.",
+                "ko": "금액은 통화 기호 없이 입력합니다. 앱은 기기의 숫자 형식을 사용합니다(예: 1,234.56 또는 1.234,56). 선택한 통화는 표시용이며 저장된 금액을 환산하지 않습니다.",
+                "pl": "Kwoty są wprowadzane bez symbolu waluty. Aplikacja używa formatu liczb Twojego urządzenia (na przykład 1,234.56 lub 1.234,56). Wybrana waluta służy tylko do wyświetlania i nie przelicza zapisanych kwot.",
+                "pt": "Os valores são inseridos sem o símbolo da moeda. O aplicativo usa o formato numérico do seu dispositivo (por exemplo, 1,234.56 ou 1.234,56). A moeda selecionada é apenas para exibição e não converte os valores salvos.",
+                "nl": "Bedragen worden zonder muntsymbool ingevoerd. De app gebruikt het getalformaat van uw apparaat (bijvoorbeeld 1,234.56 of 1.234,56). De geselecteerde valuta is alleen voor weergave en rekent opgeslagen bedragen niet om.",
+            },
+            "sec6h2": {
+                "en": "Contact Support",
+                "ja": "サポートへのお問い合わせ",
+                "fr": "Contacter l'assistance",
+                "de": "Support kontaktieren",
+                "it": "Contatta l'assistenza",
+                "ko": "지원 문의",
+                "pl": "Kontakt z pomocą techniczną",
+                "pt": "Contato de suporte",
+                "nl": "Contact opnemen met ondersteuning"
+            },
+            "sec6p": {
+                "en": "If you need further assistance or found a bug, please contact us at <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>. Please include your app version (shown in <strong>Settings</strong> &gt; <strong>About</strong>) and a description of the problem.",
+                "ja": "さらにサポートが必要な場合やバグを見つけた場合は、<a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a> までお問い合わせください。アプリのバージョン（「設定」>「このAppについて」に表示）と問題の内容を添えてください。",
+                "fr": "Si vous avez besoin d'une aide supplémentaire ou si vous avez trouvé un bug, veuillez nous contacter à <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>. Merci d'indiquer la version de votre application (affichée dans Réglages &gt; À propos) et une description du problème.",
+                "de": "Wenn Sie weitere Hilfe benötigen oder einen Fehler gefunden haben, kontaktieren Sie uns bitte unter <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>. Bitte geben Sie Ihre App-Version (unter Einstellungen &gt; Info angezeigt) und eine Beschreibung des Problems an.",
+                "it": "Se hai bisogno di ulteriore assistenza o hai trovato un bug, contattaci all'indirizzo <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>. Indica la versione dell'app (mostrata in Impostazioni &gt; Informazioni) e una descrizione del problema.",
+                "ko": "추가 지원이 필요하거나 버그를 발견하셨다면 <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>으로 연락해 주세요. 앱 버전('설정' &gt; '정보'에 표시)과 문제 내용을 함께 보내 주시기 바랍니다.",
+                "pl": "Jeśli potrzebujesz dalszej pomocy lub znalazłeś błąd, skontaktuj się z nami pod adresem <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>. Podaj wersję aplikacji (widoczną w Ustawieniach &gt; Informacje) oraz opis problemu.",
+                "pt": "Se precisar de mais assistência ou encontrou um bug, entre em contato conosco pelo e-mail <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>. Inclua a versão do seu aplicativo (mostrada em Ajustes &gt; Sobre) e uma descrição do problema.",
+                "nl": "Hebt u verdere hulp nodig of hebt u een bug gevonden, neem dan contact met ons op via <a href='mailto:vegaodm@outlook.com'>vegaodm@outlook.com</a>. Vermeld hierbij uw app-versie (weergegeven onder Instellingen &gt; Over) en een beschrijving van het probleem."
+            },
+            "updated": {
+                "en": "Last updated: October 6, 2026",
+                "ja": "最終更新日：2026年10月6日",
+                "fr": "Dernière mise à jour : 6 octobre 2026",
+                "de": "Zuletzt aktualisiert: 6. Oktober 2026",
+                "it": "Ultimo aggiornamento: 6 ottobre 2026",
+                "ko": "최종 수정: 2026년 10월 6일",
+                "pl": "Ostatnia aktualizacja: 6 października 2026",
+                "pt": "Última atualização: 6 de outubro de 2026",
+                "nl": "Laatst bijgewerkt: 6 oktober 2026",
+            },
+            "footer": {
+                "en": "<a href='index.html'>Privacy Policy</a> &middot; <a href='support.html'>Support</a>",
+                "ja": "<a href='index.html'>プライバシーポリシー</a> &middot; <a href='support.html'>サポート</a>",
+                "fr": "<a href='index.html'>Politique de confidentialité</a> &middot; <a href='support.html'>Assistance</a>",
+                "de": "<a href='index.html'>Datenschutzerklärung</a> &middot; <a href='support.html'>Support</a>",
+                "it": "<a href='index.html'>Informativa sulla privacy</a> &middot; <a href='support.html'>Assistenza</a>",
+                "ko": "<a href='index.html'>개인정보 처리방침</a> &middot; <a href='support.html'>지원</a>",
+                "pl": "<a href='index.html'>Polityka prywatności</a> &middot; <a href='support.html'>Pomoc</a>",
+                "pt": "<a href='index.html'>Política de Privacidade</a> &middot; <a href='support.html'>Suporte</a>",
+                "nl": "<a href='index.html'>Privacybeleid</a> &middot; <a href='support.html'>Ondersteuning</a>"
+            }
+        };
+
+        const SUPPORTED_LANGS = ["en", "ja", "fr", "de", "it", "ko", "pl", "pt", "nl"];
+        const STORAGE_KEY = "expenseTrackerSiteLang";
+
+        function detectLanguage() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored && SUPPORTED_LANGS.includes(stored)) return stored;
+            } catch (e) {}
+            const base = (navigator.language || "en").toLowerCase().split("-")[0];
+            return SUPPORTED_LANGS.includes(base) ? base : "en";
+        }
+
+        function applyLanguage(lang) {
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll("[data-i18n]").forEach(function (el) {
+                const key = el.getAttribute("data-i18n");
+                const t = I18N[key];
+                if (t && t[lang]) el.textContent = t[lang];
+            });
+            document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+                const key = el.getAttribute("data-i18n-html");
+                const t = I18N[key];
+                if (t && t[lang]) el.innerHTML = t[lang];
+            });
+
+            const title = I18N["title"];
+            if (title && title[lang]) document.title = title[lang];
+
+            const sel = document.getElementById("langSelect");
+            if (sel) sel.value = lang;
+        }
+
+        function setLanguage(lang) {
+            try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+            applyLanguage(lang);
+        }
+
+        document.getElementById("langSelect").addEventListener("change", function () {
+            setLanguage(this.value);
+        });
+
+        applyLanguage(detectLanguage());
+    </script>
 </body>
 </html>
