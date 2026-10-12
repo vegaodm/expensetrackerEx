@@ -127,8 +127,17 @@
             <ul>
                 <li data-i18n="sec1li1">Tap the <strong>+</strong> button on the Records tab to add a new expense.</li>
                 <li data-i18n="sec1li2">Enter the amount, choose a category, pick the date, and add an optional note, then tap <strong>Save</strong>.</li>
-                <li data-i18n="sec1li3">Tap any expense in the list to edit it; swipe left on an expense to delete it.</li>
+                <li data-i18n="sec1li3">Tap any expense to edit it. In List mode, swipe left to delete it; in Grid mode, long-press a card.</li>
                 <li data-i18n="sec1li4">View monthly summaries and charts on the <strong>Stats</strong> tab.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 data-i18n="displayh2">Display Layout</h2>
+            <ul>
+                <li data-i18n="displayli1">Open Settings &gt; Display to switch the home screen between List and Grid.</li>
+                <li data-i18n="displayli2">List shows one expense per row, grouped by day.</li>
+                <li data-i18n="displayli3">Grid shows two cards per row, each with the category, note, day, and amount. The Statistics breakdown uses cards too.</li>
             </ul>
         </section>
 
@@ -275,15 +284,15 @@
                 "nl": "Voer het bedrag in, kies een categorie, selecteer de datum en voeg eventueel een notitie toe, tik daarna op Opslaan."
             },
             "sec1li3": {
-                "en": "Tap any expense in the list to edit it; swipe left on an expense to delete it.",
-                "ja": "一覧の支出をタップすると編集でき、支出を左にスワイプすると削除できます。",
-                "fr": "Touchez une dépense de la liste pour la modifier ; balayez une dépense vers la gauche pour la supprimer.",
-                "de": "Tippen Sie auf eine Ausgabe in der Liste, um sie zu bearbeiten; wischen Sie eine Ausgabe nach links, um sie zu löschen.",
-                "it": "Tocca una spesa nell'elenco per modificarla; scorri verso sinistra su una spesa per eliminarla.",
-                "ko": "목록에서 지출을 탭하면 수정할 수 있고, 지출을 왼쪽으로 스와이프하면 삭제할 수 있습니다.",
-                "pl": "Kliknij wydatek na liście, aby go edytować; przesuń wydatek w lewo, aby go usunąć.",
-                "pt": "Toque em uma despesa na lista para editá-la; deslize uma despesa para a esquerda para excluí-la.",
-                "nl": "Tik op een uitgave in de lijst om deze te bewerken; veeg een uitgave naar links om deze te verwijderen."
+                "en": "Tap any expense to edit it. In List mode, swipe left to delete it; in Grid mode, long-press a card.",
+                "ja": "支出をタップすると編集できます。リスト表示では左にスワイプ、グリッド表示では長押しすると削除できます。",
+                "fr": "Touchez une dépense pour la modifier. En mode Liste, balayez vers la gauche pour la supprimer ; en mode Grille, appuyez longuement sur une carte.",
+                "de": "Tippen Sie auf eine Ausgabe, um sie zu bearbeiten. Im Listenmodus wischen Sie zum Löschen nach links; im Rastermodus halten Sie eine Karte gedrückt.",
+                "it": "Tocca una spesa per modificarla. In modalità Elenco, scorri verso sinistra per eliminarla; in modalità Griglia, tieni premuta una scheda.",
+                "ko": "지출을 탭하면 수정할 수 있습니다. 목록 모드에서는 왼쪽으로 스와이프하고, 그리드 모드에서는 카드를 길게 눌러 삭제합니다.",
+                "pl": "Kliknij wydatek, aby go edytować. W widoku listy przesuń w lewo, aby go usunąć; w widoku siatki naciśnij i przytrzymaj kartę.",
+                "pt": "Toque em uma despesa para editá-la. No modo Lista, deslize para a esquerda para excluí-la; no modo Grade, toque e segure um cartão.",
+                "nl": "Tik op een uitgave om deze te bewerken. Veeg in de lijstweergave naar links om te verwijderen; houd in de rasterweergave een kaart ingedrukt."
             },
             "sec1li4": {
                 "en": "View monthly summaries and charts on the Stats tab.",
@@ -295,6 +304,50 @@
                 "pl": "Przeglądaj miesięczne podsumowania i wykresy na karcie Statystyki.",
                 "pt": "Veja os resumos mensais e os gráficos na aba Estatísticas.",
                 "nl": "Bekijk maandoverzichten en grafieken op het tabblad Statistieken."
+            },
+            "displayh2": {
+                "en": "Display Layout",
+                "ja": "表示レイアウト",
+                "fr": "Disposition de l'affichage",
+                "de": "Anzeigelayout",
+                "it": "Layout di visualizzazione",
+                "ko": "표시 레이아웃",
+                "pl": "Układ wyświetlania",
+                "pt": "Layout de exibição",
+                "nl": "Weergave-indeling"
+            },
+            "displayli1": {
+                "en": "Open Settings > Display to switch the home screen between List and Grid.",
+                "ja": "「設定」>「表示」を開くと、ホーム画面をリスト表示とグリッド表示で切り替えられます。",
+                "fr": "Ouvrez Réglages > Affichage pour basculer l'écran d'accueil entre Liste et Grille.",
+                "de": "Öffnen Sie Einstellungen > Anzeige, um den Startbildschirm zwischen Liste und Raster umzuschalten.",
+                "it": "Apri Impostazioni > Visualizzazione per passare la schermata iniziale tra Elenco e Griglia.",
+                "ko": "'설정' > '표시'를 열면 홈 화면을 목록과 그리드 사이에서 전환할 수 있습니다.",
+                "pl": "Otwórz Ustawienia > Wyświetlanie, aby przełączyć ekran główny między listą a siatką.",
+                "pt": "Abra Ajustes > Exibição para alternar a tela inicial entre Lista e Grade.",
+                "nl": "Open Instellingen > Weergave om het beginscherm te wisselen tussen Lijst en Raster."
+            },
+            "displayli2": {
+                "en": "List shows one expense per row, grouped by day.",
+                "ja": "リスト表示では、日付ごとに 1 行につき 1 件の支出を表示します。",
+                "fr": "Le mode Liste affiche une dépense par ligne, regroupées par jour.",
+                "de": "Die Liste zeigt eine Ausgabe pro Zeile, nach Tag gruppiert.",
+                "it": "L'elenco mostra una spesa per riga, raggruppate per giorno.",
+                "ko": "목록은 날짜별로 그룹화하여 한 줄에 지출 하나를 표시합니다.",
+                "pl": "Lista pokazuje jeden wydatek w wierszu, pogrupowane według dnia.",
+                "pt": "A Lista mostra uma despesa por linha, agrupadas por dia.",
+                "nl": "De lijst toont één uitgave per regel, gegroepeerd per dag."
+            },
+            "displayli3": {
+                "en": "Grid shows two cards per row, each with the category, note, day, and amount. The Statistics breakdown uses cards too.",
+                "ja": "グリッド表示では 1 行に 2 枚のカードを表示し、各カードにカテゴリ・メモ・日付・金額が入ります。「統計」の内訳もカードで表示されます。",
+                "fr": "Le mode Grille affiche deux cartes par ligne, chacune avec la catégorie, la note, le jour et le montant. La répartition des Statistiques utilise aussi des cartes.",
+                "de": "Das Raster zeigt zwei Karten pro Zeile mit Kategorie, Notiz, Tag und Betrag. Auch die Aufschlüsselung in der Statistik verwendet Karten.",
+                "it": "La griglia mostra due schede per riga, ciascuna con categoria, nota, giorno e importo. Anche il dettaglio delle Statistiche usa schede.",
+                "ko": "그리드는 한 줄에 카드 두 개를 표시하며, 각 카드에 카테고리, 메모, 날짜, 금액이 들어갑니다. '통계' 내역도 카드로 표시됩니다.",
+                "pl": "Siatka pokazuje dwie karty w wierszu, każda z kategorią, notatką, dniem i kwotą. Podział w Statystykach również używa kart.",
+                "pt": "A Grade mostra dois cartões por linha, cada um com categoria, nota, dia e valor. O detalhamento das Estatísticas também usa cartões.",
+                "nl": "Het raster toont twee kaarten per regel, elk met categorie, notitie, dag en bedrag. De uitsplitsing in Statistieken gebruikt ook kaarten."
             },
             "sec2h2": {
                 "en": "Managing Categories",
